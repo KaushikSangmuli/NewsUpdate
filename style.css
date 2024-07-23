@@ -293,15 +293,21 @@ object-fit: contain;
   #offer-para{
     white-space: nowrap;
     color: white;
-    animation: offerAnimation 16s linear infinite;
+    animation: offerAnimation 2s linear infinite;
+    text-align: center;
   }
 
   @keyframes offerAnimation {
-    0% {
-        transform: translate(80%, 0);
+    25% {
+    color: rgb(116, 250, 6);
+
+    } 
+    50%{
+        color: aqua;
     }
-    100% {
-        transform: translate(-80%, 0);
+    75%{
+    color: rgb(116, 250, 6);
+        
     }
 }
 

@@ -21,30 +21,36 @@ const itemsPerPage = 8;
 let currentPage = 1;
 let collection = [];
 
-searchIcon.addEventListener("click", ()=>{
-  isBreakingNews = false
-  isEverything= true
-    if (search.value){
-        userSearch  = search.value
-    } else {
-        userSearch = "india"
-    }
-    console.log(userSearch)
-    apiUrl = `https://newsapi.org/v2/everything?q=${userSearch}&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&language=en&sortBy=relevancy`
-    fetching()    
+// searchIcon.addEventListener("click", ()=>{
+//   isBreakingNews = false
+//   isEverything= true
+//     if (search.value){
+//         userSearch  = search.value
+//     } else {
+//         userSearch = "india"
+//     }
+//     apiUrl = `https://newsapi.org/v2/everything?q=${userSearch}&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&language=en&sortBy=relevancy`
+//     fetching()    
+// })
+// const categoryImages = document.querySelectorAll(".category")
+// categoryImages.forEach(selectedImage =>{
+//   selectedImage.addEventListener("click", ()=>{
+//     isEverything = false
+//     isBreakingNews = true
+//     const selectedCategory = selectedImage.getAttribute("category-data")
+//     apiUrl = `https://newsapi.org/v2/top-headlines?country=in&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&category=${selectedCategory}&pageSize=100`
+//     fetching()
+//   })
+// })
+const demo = document.querySelector("#headlines")
+let apip= `https://newsdata.io/api/1/latest?apikey=pub_487828b84c99f4776e86dccd7394bebdffc4d&`
+fetch(apip)
+.then(res=>res.json())
+.then(data => data.results[3])
+.then(data=> {
+  demo.innerText =  data.title
+  console.log(data)
 })
-const categoryImages = document.querySelectorAll(".category")
-categoryImages.forEach(selectedImage =>{
-  selectedImage.addEventListener("click", ()=>{
-    isEverything = false
-    isBreakingNews = true
-    const selectedCategory = selectedImage.getAttribute("category-data")
-    console.log(selectedCategory)
-    apiUrl = `https://newsapi.org/v2/top-headlines?country=in&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&category=${selectedCategory}&pageSize=100`
-    fetching()
-  })
-})
-
 
 function fetching(){
   
@@ -61,7 +67,6 @@ fetching()
 
 function renderPage(page) {
 
-  debugger
     newsContainer.innerHTML = '';
     const start = (page - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -69,7 +74,7 @@ function renderPage(page) {
 
     pageData.forEach(item => {
       const news = document.createElement("div");
-      console.log(item)
+      
 
       // Clean the content
       
@@ -144,7 +149,6 @@ rightScroll.addEventListener("click",()=>{
   }
   let getting = document.getElementById(`${count}`)
   getting.scrollIntoView({behavior:"smooth" ,inline:"center" })
-  console.log(count, getting)
   
 })
 
@@ -156,7 +160,6 @@ leftScroll.addEventListener("click",()=>{
   }
   let getting = document.getElementById(`${count}`)
   getting.scrollIntoView({behavior:"smooth" ,inline:"center" })
-  console.log(count, getting)
 
 })
 
@@ -167,7 +170,6 @@ dotting.forEach((dot , index) =>{
     num= index+1
     let getting = document.getElementById(`${num}`)
     getting.scrollIntoView({behavior:"smooth" ,inline:"center" })
-    console.log(getting, index,dot)
   })
 })
 
