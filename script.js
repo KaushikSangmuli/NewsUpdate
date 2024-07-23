@@ -40,7 +40,7 @@ categoryImages.forEach(selectedImage =>{
     isBreakingNews = true
     const selectedCategory = selectedImage.getAttribute("category-data")
     console.log(selectedCategory)
-    apiUrl = `https://newsapi.org/v2/top-headlines?country=in&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&category=${selectedCategory}&pageSize=100&from=${yesterday}&to=${presentday}`
+    apiUrl = `https://newsapi.org/v2/top-headlines?country=in&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&category=${selectedCategory}&pageSize=100`
     fetching()
   })
 })
@@ -60,6 +60,8 @@ function fetching(){
 fetching()
 
 function renderPage(page) {
+
+  debugger
     newsContainer.innerHTML = '';
     const start = (page - 1) * itemsPerPage;
     const end = start + itemsPerPage;
