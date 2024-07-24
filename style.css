@@ -76,6 +76,7 @@ align-items: center;
 border: 2px solid rgb(91, 90, 90) ;
 height: 360px;
 width: 300px;
+margin-bottom: 12px;
 }
 .hero-images div img{
 height: 90%;
@@ -95,8 +96,11 @@ object-fit: contain;
     border: 2px solid #4a4a4a;
     border-radius: 50%;
 }
+.dot div:hover{
+    cursor: pointer;
+}
 .dot div:active{
-    transform: scale(1.2);
+    transform: scale(1.4);
 }
 
 
@@ -105,18 +109,21 @@ object-fit: contain;
     bottom: 50%;
     left: 1%;
     padding: 4px 4px;
-    background-color: transparent;
     font-size: 2.5rem;
-    color: whitesmoke
+    color: rgb(0, 0, 0);
+    background-color: rgb(136, 130, 130,0.4);
+    border-radius: 12px;
 }
 #right{
     position: absolute;
     bottom: 50%;
     right: 1%;
     padding: 4px 4px;
-    background-color: transparent;
     font-size: 2.5rem;
-    color: whitesmoke
+    color: rgb(0, 0, 0);
+    background-color: rgb(136, 130, 130,0.4);
+    border-radius: 12px;
+
 }
 
 .hero-images::-webkit-scrollbar{
@@ -124,11 +131,9 @@ object-fit: contain;
 }
 
 .img-div:hover{
-    transform: scale(1.1);
     cursor: pointer;
 }
 .img-div:active{
-    border: 2px solid red;
     box-shadow: 0 0 2px 5px red;
 }
 .news-container{
@@ -187,18 +192,18 @@ object-fit: contain;
     font-size: 1.25rem;
 }
 .dd{
-    font-weight: 900;
+    font-weight: 600;
 }
 /* utility */
 .visible{
     overflow: visible;
-    /* max-height: max-content; */
     background-color: rgb(185 249 182);
 }
 
 .pagination button.active {
     background-color: rgb(27, 179, 206);
   }
+
 .pagination{
     margin-top: 32px;
     display: flex;
@@ -318,7 +323,7 @@ object-fit: contain;
     margin-top: 32px;
    }
     .search-div{
-        width: 30%;
+        width: 50%;
     }
     .navbar button{
         font-size: 1rem;
@@ -331,6 +336,10 @@ object-fit: contain;
     .news{
         flex-direction: column;
         align-items: center;
+        width: 96%;
+    }
+    .news-container{
+        width: 100%;
     }
     .left-section{
         width: 100%;
@@ -338,10 +347,16 @@ object-fit: contain;
     .right-section{
         width: 100%;
     }
+    #signUp{
+        display: none;
+    }
 }
 
 @media (width < 480px) {
     .navbar{
         padding: 4px 4px;
+    }
+    .search-div{
+        width: 30%;
     }
 }

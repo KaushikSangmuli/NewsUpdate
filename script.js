@@ -134,17 +134,26 @@ function renderPage(page) {
     buttons[currentPage - 1].classList.add('active');
   }
 
-
+const heroimages = document.querySelectorAll(".img-div")
 const leftScroll = document.querySelector("#left")  
 const rightScroll = document.querySelector("#right") 
 let count = 1
 
 rightScroll.addEventListener("click",()=>{
+  
   if (count<7){
     count++
   }
+  removeShadow ()
   let getting = document.getElementById(`${count}`)
   getting.scrollIntoView({behavior:"smooth" ,inline:"center" })
+  getting.style.boxShadow = ` 0 0 12px 3px red`
+  
+  setTimeout(() => {
+    
+    scrollWindow()
+  }, 2000);
+
   
 })
 
@@ -154,20 +163,46 @@ leftScroll.addEventListener("click",()=>{
   if (count>1){
     count--
   }
+  removeShadow ()
   let getting = document.getElementById(`${count}`)
   getting.scrollIntoView({behavior:"smooth" ,inline:"center" })
+  getting.style.boxShadow = ` 0 0 12px 3px red`
 
+  setTimeout(() => {
+    
+    scrollWindow()
+  }, 1000);
 })
 
 const dotting = document.querySelectorAll(".dotting")
 dotting.forEach((dot , index) =>{
   dot.addEventListener("click", ()=>{
+    removeShadow ()
     
     num= index+1
     let getting = document.getElementById(`${num}`)
     getting.scrollIntoView({behavior:"smooth" ,inline:"center" })
+  getting.style.boxShadow = ` 0 0 12px 3px red`
+
+    setTimeout(() => {
+    
+      scrollWindow()
+    }, 1000);
   })
 })
 
+
+// to prevent the bug occured while scrolling
+function scrollWindow() {
+  window.scrollBy({ top: 1, behavior: 'smooth' });
+  console.log("scrolling is done")
+}
+
+// to remove the shadow from prev hero image
+function removeShadow (){
+  heroimages.forEach(image =>{
+    image.style.boxShadow = ''
+  })
+}
 
 
