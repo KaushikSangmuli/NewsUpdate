@@ -1,7 +1,7 @@
 const search = document.querySelector("#navbar-search")   //search Input
 const searchIcon = document.querySelector(".search-icon")  //search Icon
-const apiKey = "816de7f1ec5e425bbbde4e0ce30d613e"
-let apiUrl = `https://newsapi.org/v2/everything?q=india&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&language=en&sortBy=publishedAt`
+const apiKey = "d129931d418171fd6b73faf4ad15445f"
+let apiUrl = `https://gnews.io/api/v4/search?q=india&apikey=${apiKey}&max=50`
 const description = document.querySelector("#news-description")
 const newsContainer = document.querySelector(".news-container")
 const rightSection = document.querySelector(".right-section")
@@ -21,35 +21,26 @@ const itemsPerPage = 8;
 let currentPage = 1;
 let collection = [];
 
-// searchIcon.addEventListener("click", ()=>{
-//   isBreakingNews = false
-//   isEverything= true
-//     if (search.value){
-//         userSearch  = search.value
-//     } else {
-//         userSearch = "india"
-//     }
-//     apiUrl = `https://newsapi.org/v2/everything?q=${userSearch}&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&language=en&sortBy=relevancy`
-//     fetching()    
-// })
-// const categoryImages = document.querySelectorAll(".category")
-// categoryImages.forEach(selectedImage =>{
-//   selectedImage.addEventListener("click", ()=>{
-//     isEverything = false
-//     isBreakingNews = true
-//     const selectedCategory = selectedImage.getAttribute("category-data")
-//     apiUrl = `https://newsapi.org/v2/top-headlines?country=in&apiKey=816de7f1ec5e425bbbde4e0ce30d613e&category=${selectedCategory}&pageSize=100`
-//     fetching()
-//   })
-// })
-const demo = document.querySelector("#headlines")
-let apip= `https://newsdata.io/api/1/latest?apikey=pub_487828b84c99f4776e86dccd7394bebdffc4d&`
-fetch(apip)
-.then(res=>res.json())
-.then(data => data.results[3])
-.then(data=> {
-  demo.innerText =  data.title
-  console.log(data)
+searchIcon.addEventListener("click", ()=>{
+  isBreakingNews = false
+  isEverything= true
+    if (search.value){
+        userSearch  = search.value
+    } else {
+        userSearch = "india"
+    }
+    apiUrl = `https://gnews.io/api/v4/search?q=${userSearch}&apikey=${apiKey}&language=en&max=50`
+    fetching()    
+})
+const categoryImages = document.querySelectorAll(".category")
+categoryImages.forEach(selectedImage =>{
+  selectedImage.addEventListener("click", ()=>{
+    isEverything = false
+    isBreakingNews = true
+    const selectedCategory = selectedImage.getAttribute("category-data")
+    apiUrl = `https://gnews.io/api/v4/top-headlines?apikey=${apiKey}&category=${selectedCategory}&language=en&max=50`
+    fetching()
+  })
 })
 
 function fetching(){
@@ -82,12 +73,12 @@ function renderPage(page) {
       news.innerHTML = `
       <div class="news">
       <div class="left-section">
-      <img src="${item.urlToImage}" alt="SHOWING IMAGE">
+      <img src="${item.image}" alt="SHOWING IMAGE">
           </div>
           <div class="right-section visible">
-            <h4 class="heading">${item.title}</h4>
-            <span class="publish-details">Published by: ${item.author} / ${item.publishedAt}</span>
-            <span class="description">${item.description}</span>
+            <h2 class="heading">${item.title}</h2>
+            <span class="publish-details">Published at: ${item.publishedAt}</span>
+            <span class="description dd">${item.description}</span>
             <p id="news-content">${item.content}</p>
           </div>
         </div>
@@ -95,11 +86,16 @@ function renderPage(page) {
       if(isBreakingNews){
         news.innerHTML = `
       <div class="news">
-      
-          <div class="right-section visible">
-            <h3 class="heading">${item.title}</h3>
-            <h4 class="publish-details">Published by: ${item.author} / ${item.publishedAt}</h4>
+          <div class="left-section">
+      <img src="${item.image}" alt="SHOWING IMAGE">
           </div>
+          <div class="right-section visible">
+            <h2 class="heading">${item.title}</h2>
+            <span class="publish-details">Published at:  ${item.publishedAt}</span>
+            <span class="description dd">${item.description}</span>
+            <p id="news-content">${item.content}</p>
+          </div>
+
         </div>
       `;
       }

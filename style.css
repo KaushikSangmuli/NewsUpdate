@@ -164,7 +164,6 @@ object-fit: contain;
     width: 56%;
     padding: 16px 12px;
     overflow: hidden;
-    max-height: 120px;
 }
 .right-section h3{
     margin-bottom: 16px;
@@ -174,11 +173,7 @@ object-fit: contain;
     color: gray;
     display: block;
 }
-.discription{
-    font-size: 1.25rem;
-    font-weight: 500;
-    
-}
+
 .read-more{
     padding: 2px 4px;
     background-color: blue;
@@ -187,10 +182,17 @@ object-fit: contain;
     bottom: -40px;
 
 }
+.img-div span{
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+.dd{
+    font-weight: 900;
+}
 /* utility */
 .visible{
     overflow: visible;
-    max-height: max-content;
+    /* max-height: max-content; */
     background-color: rgb(185 249 182);
 }
 
@@ -287,7 +289,7 @@ object-fit: contain;
     position: absolute;
     top: 2px;
     width: 100%;
-    background-color: RED;
+    background-color: rgb(20, 20, 20);
     
 }
   #offer-para{
