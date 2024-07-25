@@ -3,7 +3,6 @@ const search = document.querySelector("#navbar-search")   //search Input
 const searchIcon = document.querySelector(".search-icon")  //search Icon
 const apiKey = "d129931d418171fd6b73faf4ad15445f"
 let selectedLanguage ;
-
 let apiUrl = `https://gnews.io/api/v4/search?q=india&apikey=${apiKey}&max=50&lang=en`
 const description = document.querySelector("#news-description")
 const newsContainer = document.querySelector(".news-container")
@@ -82,10 +81,7 @@ function renderPage(page) {
 
     pageData.forEach(item => {
       const news = document.createElement("div");
-      
 
-      // Clean the content
-      
       if(isEverything){
       news.innerHTML = `
       <div class="news">
@@ -100,6 +96,8 @@ function renderPage(page) {
           </div>
         </div>
       `;}
+
+
       if(isBreakingNews){
         news.innerHTML = `
       <div class="news">
@@ -202,7 +200,6 @@ dotting.forEach((dot , index) =>{
   getting.style.boxShadow = ` 0 0 12px 3px red`
 
     setTimeout(() => {
-    
       scrollWindow()
     }, 1000);
   })

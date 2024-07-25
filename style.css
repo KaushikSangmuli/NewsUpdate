@@ -11,7 +11,6 @@
     align-items: center;
     background-color: rgb(231, 229, 229);
     padding: 4px 20px;
-    margin-top: 20px;
 }
 .navbar  img{
     height: 48px;
@@ -292,14 +291,11 @@ object-fit: contain;
     color: rgb(6, 74, 74);
   }
 .offer{
-    position: absolute;
-    top: 2px;
     width: 100%;
     background-color: rgb(20, 20, 20);
     
 }
   #offer-para{
-    white-space: nowrap;
     color: white;
     animation: offerAnimation 2s linear infinite;
     text-align: center;
@@ -320,9 +316,7 @@ object-fit: contain;
 }
 
 @media  (width < 800px) {
-   .navbar{
-    margin-top: 32px;
-   }
+ 
    .navbar  img{
     height: 32px;
     margin-left: 4px;
