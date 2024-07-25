@@ -14,7 +14,7 @@
     margin-top: 20px;
 }
 .navbar  img{
-    width: 120px;
+    height: 48px;
 }
 .search-div{
     width: 48%;
@@ -114,6 +114,7 @@ object-fit: contain;
     background-color: rgb(136, 130, 130,0.4);
     border-radius: 12px;
 }
+
 #right{
     position: absolute;
     bottom: 50%;
@@ -322,17 +323,19 @@ object-fit: contain;
    .navbar{
     margin-top: 32px;
    }
+   .navbar  img{
+    height: 32px;
+    margin-left: 4px;
+   }
     .search-div{
-        width: 50%;
+        width: 40%;
     }
     .navbar button{
         font-size: 1rem;
         padding: 4px 8px;
         border-radius: 12px;
     }
-    .navbar select{
-        display: none;
-    }
+    
     .news{
         flex-direction: column;
         align-items: center;

@@ -17,13 +17,21 @@
 <body>
     <header>
         <nav class="navbar">
-            <img id="logo" src="logo_inshorts.png" alt="ye mera logo hain...">
+            <picture>
+                <source media="(max-width: 800px)" srcset="/minilogo.png">
+                <img id="logo" src="logo_inshorts.png" alt="ye mera logo hain...">
+            </picture>
             <div class="search-div">
                 <input id="navbar-search" type="text" placeholder="search by interest, topic,date">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </div>
-            <select name="" id="">
-                <option value="">select</option>
+            <select name="languages" id="languages">
+                <option value="en">English</option>
+                <option value="hi">हिंदी </option>
+                <option value="mr">मराठी</option>
+                <option value="ml">Malayalam</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
             </select>
             <button id="signIn"><a href="signup.html">Sign Up</a></button>
             <button id="signUp"><a href="signup.html">Sign In </a></button>
