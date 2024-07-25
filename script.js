@@ -1,7 +1,7 @@
 const search = document.querySelector("#navbar-search")   //search Input
 const searchIcon = document.querySelector(".search-icon")  //search Icon
 const apiKey = "d129931d418171fd6b73faf4ad15445f"
-let apiUrl = `https://gnews.io/api/v4/search?q=india&apikey=${apiKey}&max=50`
+let apiUrl = `https://gnews.io/api/v4/search?q=india&apikey=${apiKey}&max=50&lang=en`
 const description = document.querySelector("#news-description")
 const newsContainer = document.querySelector(".news-container")
 const rightSection = document.querySelector(".right-section")
@@ -29,7 +29,7 @@ searchIcon.addEventListener("click", ()=>{
     } else {
         userSearch = "india"
     }
-    apiUrl = `https://gnews.io/api/v4/search?q=${userSearch}&apikey=${apiKey}&language=en&max=50`
+    apiUrl = `https://gnews.io/api/v4/search?q=${userSearch}&apikey=${apiKey}&lang=en&max=50`
     fetching()    
 })
 const categoryImages = document.querySelectorAll(".category")
@@ -38,7 +38,7 @@ categoryImages.forEach(selectedImage =>{
     isEverything = false
     isBreakingNews = true
     const selectedCategory = selectedImage.getAttribute("category-data")
-    apiUrl = `https://gnews.io/api/v4/top-headlines?apikey=${apiKey}&category=${selectedCategory}&language=en&max=50`
+    apiUrl = `https://gnews.io/api/v4/top-headlines?apikey=${apiKey}&category=${selectedCategory}&lang=en&max=50`
     fetching()
   })
 })
