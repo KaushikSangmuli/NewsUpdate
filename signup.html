@@ -14,14 +14,15 @@
 
     <div class="signin-container">
         <h1> Sign Up</h1>
+        <form action="http://localhost:3000/signup" method="POST">
         <div>
             <div class="input-div">
                 <label for="userName"> Enter Your Username</label>
-                <input class="getInput"  type="text" id="userName">
+                <input class="getInput"  type="text" id="userName" name="userName" >
             </div>
             <div class="input-div">
                 <label for="password"> Enter Your Password</label>
-                <input class="getInput" type="password" id="password">
+                <input class="getInput" type="password" id="password" name="password">
             </div>
             <div class="input-div for-toggle">
                 <label for="rePassword"> Re-enter Password again</label>
@@ -29,7 +30,7 @@
             </div>
             <div class="input-div for-toggle">
                 <label for="mobile"> Enter Your Phone Number</label>
-                <input class="getInput" type="text" id="mobile">
+                <input class="getInput" type="text" id="mobile" name="mobile">
             </div>
             <div class="input-div">
                 <button id="submit"> Submit </button>
@@ -37,6 +38,7 @@
 
             </div>
         </div>
+    </form>
     </div>
     
 </body>
